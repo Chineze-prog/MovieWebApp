@@ -1,0 +1,18 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Chineze Obi",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "nodejs": "^0.0.0",
+    "@types/node": "20.14.11",
+    "node-fetch": "3.3.2"
+  }
+}
