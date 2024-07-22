@@ -1,7 +1,6 @@
 import app from "./server.js";
 import mongodb from "mongodb";
 import dotenv from "dotenv";
-
 //import ReviewsDAO from "./dao/ReviewsDAO.js";
 
 //the web link: http://localhost:8000/api/v1/reviews
@@ -9,20 +8,19 @@ import dotenv from "dotenv";
 //use mongodb online to create the database
 dotenv.config();
 
-console.log("MONGO_USERNAME:", process.env['MONGO_USERNAME']); // Should log your username
-console.log("MONGO_PASSWORD:", process.env.MONGO_PASSWORD); // Should log your password
-
 const MongoClient = mongodb.MongoClient;
 const port = 8000;
 
-const mongo_username = process.env.MONGO_USERNAME;//['MONGO_USERNAME'];
-const mongo_password = process.env.MONGO_PASSWORD;//['MONGO_PASSWORD'];
+const mongo_username = process.env.MONGO_USERNAME;
+const mongo_password = process.env.MONGO_PASSWORD;
+
 if (!mongo_username || !mongo_password) {
     console.error("MongoDB username or password is undefined. Check your .env file.");
     process.exit(1);
 }
 
-const uri = `mongodb+srv://chinezeobibomi:WDO7678lxacmAIXO@cluster0.nqnp9dv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;//`mongodb+srv://${mongo_username}:${mongo_password}@cluster0.nqnp9dv.mongodb.net/`
+const uri = `mongodb+srv://${mongo_username}:${mongo_password}@cluster0.nqnp9dv.mongodb.net/`
+//`mongodb+srv://${mongo_username}:${mongo_password}@cluster0.nqnp9dv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 MongoClient.connect(
     uri,
