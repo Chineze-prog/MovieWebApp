@@ -46,3 +46,15 @@ function returnMovies(url){
         });
 }
 
+form.addEventListener("submit", (event) =>{
+    event.preventDefault();
+    main.innerHTML = '';
+
+    const searchItem = search.value;
+    const searchUrl = SEARCHAPI + searchItem + "";
+
+    if(searchItem){
+        returnMovies(searchUrl);
+        search.value = '';
+    }
+});
