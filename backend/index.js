@@ -1,7 +1,7 @@
 import app from "./server.js";
 import mongodb from "mongodb";
 import dotenv from "dotenv";
-//import ReviewsDAO from "./dao/ReviewsDAO.js";
+import ReviewsDAO from "./dao/ReviewsDAO.js";
 
 //the web link: http://localhost:8000/api/v1/reviews
 //database code
@@ -34,5 +34,6 @@ MongoClient.connect(
     process.exit(1)
 })
 .then(async client =>{
+    await ReviewsDAO.injectDB(client); //sends the db conection to the reviewDAO so that we can access the db
     app.listen(port, () => { console.log("listening on port " + port + "...") }) //starts the server
 });
