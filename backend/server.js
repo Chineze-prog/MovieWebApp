@@ -22,4 +22,3 @@ app.use("*", (request, response) => response.status(404).json({ error: "not foun
 
 //export our app as a module - which will allow us to import app in the file that accesses the database which will be the file we will run to get the server running
 //when you want to use code b/w files you have to use an export statement at the end to export something from that file to use to import into another file
-export default app;
