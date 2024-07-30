@@ -1,4 +1,4 @@
-import ReviewsDAO from "../dao/reviewsDAO.js"; // what we use to actually access the database and make changes to it
+import ReviewsDAO from "../dao/ReviewsDAO.js"; // what we use to actually access the database and make changes to it
 
 //controller file - to tell what to do when we go to the different routes
 
@@ -6,13 +6,14 @@ import ReviewsDAO from "../dao/reviewsDAO.js"; // what we use to actually access
 export default class ReviewsController{
     //it is static bcos you can call it directly from the ReviewsController class
     //if it wasn't static we would have to create an instance of a ReviewsController
-    static async apiRostReview(request, response, next){
+    static async apiPostReview(request, response, next){
         try{
             //body is some json that u include in the url
-            const movieId = request.body.movieId;
+            const movieId = parseInt(request.body.movieId);
             const review = request.body.review;
             const user = request.body.user;
 
+            console.log('movieid ', movieId);
             const reviewResponse = await ReviewsDAO.addReview(
                 movieId,
                 user,
@@ -39,7 +40,7 @@ export default class ReviewsController{
         }
         catch(exception){
             console.log(`api, ${exception}`);
-            response.status(500).json({ error: exception.message });
+            response.status(500).json({ error: exception });
         }
     }
 
@@ -88,7 +89,7 @@ export default class ReviewsController{
         }
     }
 
-    static async apiGetReview(request, response, next){
+    static async apiGetReviews(request, response, next){
         try{
             let id = request.params.id || {};
 
@@ -103,7 +104,7 @@ export default class ReviewsController{
         }
         catch(exception){
             console.log(`api, ${exception}`);
-            response.status(500).json({ error: exception.message });
+            response.status(500).json({ error: exception });
         }
     }
 }
