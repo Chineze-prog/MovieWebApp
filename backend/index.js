@@ -8,6 +8,13 @@ import ReviewsDAO from "./dao/ReviewsDAO.js";
 
 //the web link: http://localhost:8000/api/v1/reviews
 //the first test data insertion in powershell: Invoke-WebRequest -Uri http://localhost:8000/api/v1/reviews/new -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"movieId": 12, "user": "beau", "review": "good"}'
+//to get a review: Invoke-WebRequest -Uri http://localhost:8000/api/v1/reviews/66a935ae99d945f667e88ac8
+//to get all reviews for a movie: Invoke-WebRequest -Uri http://localhost:8000/api/v1/reviews/movie/12
+//to change a review: Invoke-WebRequest -Uri http://localhost:8000/api/v1/reviews/66a935ae99d945f667e88ac8 -Method PUT -Headers @{ "Content-Type" = "application/json" } -Body '{"user": "beau", "review": "horrible"}'
+//to delete a review: Invoke-WebRequest -Uri http://localhost:8000/api/v1/reviews/66a935ae99d945f667e88ac8 -Method DELETE -Headers @{ "Content-Type" = "application/json" }
+
+//netstat -ano | findstr :8000
+//taskkill /PID <PID> /F
 
 dotenv.config();
 

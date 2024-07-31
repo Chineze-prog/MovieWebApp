@@ -61,10 +61,7 @@ export default class ReviewsDAO{
       }
 
       //findOne - mongodb command to find a document in the db, search by id
-      console.log("reviewId", reviewId)
-      const id = new ObjectId("66a935ae99d945f667e88ac8")//String(reviewId));
-      console.log("check", id)
-      return await reviews.findOne({ _id: id });
+      return await reviews.findOne({ _id: new ObjectId(String(reviewId)) });
     }
     catch(exception){
       console.error(`Unable to get review: ${exception}`);
@@ -80,7 +77,7 @@ export default class ReviewsDAO{
 
       //updateOne - mongodb command to update a document in the db, search by id then set the new values
       const updateResponse = await reviews.updateOne(
-        { _id: ObjectId(reviewId) },
+        { _id: new ObjectId(String(reviewId)) },
         { $set: { user: user, review: review } }
       );
 
@@ -99,7 +96,7 @@ export default class ReviewsDAO{
       }
 
       //deleteOne - mongodb command to delete a document in the db, search by id then delete
-      const deleteResponse = await reviews.deleteOne({ _id: ObjectId(reviewId) });
+      const deleteResponse = await reviews.deleteOne({ _id: new ObjectId(String(reviewId)) });
 
       return deleteResponse;
     }

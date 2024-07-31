@@ -37,6 +37,8 @@ export default class ReviewsController{
                 response.status(404).json({ error: "Not found" });
                 return;
             }
+
+            response.json(review)
         }
         catch(exception){
             console.log(`api, ${exception}`);
