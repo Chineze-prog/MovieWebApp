@@ -6,10 +6,7 @@
 body {
     background-color: #131720;
     font-family: sans-serif;
-}
-
-h4 {
-    color: white;
+    color: white; /* text color */
 }
 
 .topNav {
@@ -43,9 +40,8 @@ form {
 }
 
 input{
-    all: unset;
     font: 15px system-ui;
-    color: #fff;
+    color: #131720;
     height: 100%;
     width: 100%;
     padding: 6px 9px;
@@ -74,4 +70,40 @@ input{
     padding: 15px;
     text-align: center;
     background-color: #151f30;
+}
+
+.review-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the color from the parent element */
+    color: #007BFF; /* Set the color of the link */
+    font-weight: bold; /* Makethe textbold */
+}
+
+/* Hover effect */
+.review-link:hover {
+    color: #0056b3; /* Set the color of the link */
+    font-weight: bold; /* Makethe textbold */
+    text-decoration: underline; /* Add underline to the text */
+}
+
+/* Active state */
+.review-link:active {
+    color: #004085; /* Change the color when the link is clicked */
+}
+
+/* Focus state */
+.review-link:focus {
+    outline: 2px dashed #007BFF; /* Add outline when focused */
+    outline-offset: 2px;
+}
+
+.review{
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+#section {
+    display: block;
+    margin: 20px 0;
 }
