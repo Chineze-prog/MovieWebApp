@@ -1,4 +1,3 @@
-
 const APILINK = 'http://localhost:8000/api/v1/reviews/';
 
 const url = new URL(location.href);
@@ -118,9 +117,19 @@ console.log(user);
         })
             .then(result => result.json())
             .then(result => {
-                console.log(result)
+                console.log(result);
                 location.reload(); //reloads the url/website
             });
     }   
 }
 
+function deleteReview(id){
+    fetch(APILINK + id + "", {
+        method: 'DELETE'
+    })
+        .then(result => result.json())
+        .then(result => {
+            console.log(result);
+            location.reload();
+        });
+}

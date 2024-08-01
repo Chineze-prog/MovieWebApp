@@ -13,6 +13,7 @@ import ReviewsDAO from "./dao/ReviewsDAO.js";
 //to change a review: Invoke-WebRequest -Uri http://localhost:8000/api/v1/reviews/66a935ae99d945f667e88ac8 -Method PUT -Headers @{ "Content-Type" = "application/json" } -Body '{"user": "beau", "review": "horrible"}'
 //to delete a review: Invoke-WebRequest -Uri http://localhost:8000/api/v1/reviews/66a935ae99d945f667e88ac8 -Method DELETE -Headers @{ "Content-Type" = "application/json" }
 
+//checking the servers being used and terminating them:
 //netstat -ano | findstr :8000
 //taskkill /PID <PID> /F
 
@@ -31,7 +32,6 @@ if (!mongo_username || !mongo_password) {
 
 const uri = `mongodb+srv://${mongo_username}:${mongo_password}@cluster0.nqnp9dv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 //`mongodb+srv://${mongo_username}:${mongo_password}@cluster0.nqnp9dv.mongodb.net/`
-
 
 MongoClient.connect(
     uri,

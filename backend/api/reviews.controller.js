@@ -13,7 +13,6 @@ export default class ReviewsController{
             const review = request.body.review;
             const user = request.body.user;
 
-            console.log('movieid ', movieId);
             const reviewResponse = await ReviewsDAO.addReview(
                 movieId,
                 user,

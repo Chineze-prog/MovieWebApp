@@ -1,10 +1,9 @@
-import mongodb from "mongodb";
+//import mongodb from "mongodb";
 import { ObjectId } from 'mongodb';
 // what we use to actually access the database and make changes to it
 
 //const ObjectId = mongodb.ObjectId;
 let reviews
-
 
 //exporting the reviewsDAO class so that we can import it in other files
 export default class ReviewsDAO{
@@ -44,7 +43,6 @@ export default class ReviewsDAO{
         throw new Error("Reviews collection is not initialized.")
       }
 
-      console.log("adding new review...");
       //insertOne - mongodb command to insert a document into the db
       return await reviews.insertOne(reviewDoc);    
     }
